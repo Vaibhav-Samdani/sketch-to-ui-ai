@@ -22,19 +22,19 @@ const Navbar = () => {
   const projectId = params.get("project");
 
   const pathname = usePathname();
-//  TODO: add credits logic
+  //  TODO: add credits logic
   const me = useAppSelector((state) => state.profile);
 
   // TODO: Fix these urls
   const tabs: TabProps[] = [
     {
       label: "Canvas",
-      href: `/dashboard//canvas?project=${projectId}`,
+      href: `/dashboard/${me.name}/canvas?project=${projectId}`,
       icon: <Hash className="w-4 h-4" />,
     },
     {
       label: "Style Guide",
-      href: `/dashboard//style-guide?project=${projectId}`,
+      href: `/dashboard/${me.name}/style-guide?project=${projectId}`,
       icon: <LayoutTemplate className="w-4 h-4" />,
     },
   ];
@@ -113,7 +113,7 @@ const Navbar = () => {
           </AvatarFallback>
         </Avatar>
         {/* TODO: Add autosave and create project */}
-        {!hasCanvas && !hasStyleGuide && <CreateProject/> }
+        {!hasCanvas && !hasStyleGuide && <CreateProject />}
       </div>
     </div>
   );
