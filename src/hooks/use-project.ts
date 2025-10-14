@@ -71,7 +71,6 @@ export const useProjectCreation = () => {
           frameCounter: shapesState.frameCounter,
         },
         thumbnail,
-        // TIMESTAMP : 2:46:43
       });
 
       dispatch(
