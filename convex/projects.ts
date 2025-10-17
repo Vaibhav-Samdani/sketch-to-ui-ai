@@ -105,7 +105,6 @@ export const getUserProjects = query({
   },
 });
 
-
 export const getProjectStyleGuide = query({
   args: { projectId: v.id("projects") },
   handler: async (ctx, { projectId }) => {
@@ -115,10 +114,15 @@ export const getProjectStyleGuide = query({
     const project = await ctx.db.get(projectId);
     if (!project) throw new Error("Project not found");
 
-    if(project.userId !== userId && !project.isPublic){
+    if (project.userId !== userId && !project.isPublic) {
       throw new Error("Access denied");
     }
 
-    return project.styleGuide ? JSON.parse(project.styleGuide) : null;
-  }
-})
+    try {
+      return project.styleGuide ? JSON.parse(project.styleGuide) : null;
+    } catch (error) {
+      console.error("Failed to parse style guide JSON: ", error);
+      return null;
+    }
+  },
+});
