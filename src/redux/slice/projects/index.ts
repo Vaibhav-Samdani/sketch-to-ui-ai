@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface ProjectSummary {
   _id: string;
-  name: string; // [ ] : Maybe this is not name this is a title
+  name: string;
   projectNumber: number;
   thumbnail?: string;
   lastModified: number;
