@@ -44,7 +44,7 @@ const StyleGuideTypography = ({ typographyGuide }: Props) => {
                       )}
                     </div>
                     <div
-                      className="text-foreground"
+                      className="text-foreground my-4"
                       style={{
                         fontFamily: style.fontFamily,
                         fontSize: style.fontSize,
@@ -59,7 +59,7 @@ const StyleGuideTypography = ({ typographyGuide }: Props) => {
                       <div>Font : {style.fontFamily}</div>
                       <div>Size : {style.fontSize}</div>
                       <div>Weight : {style.fontWeight}</div>
-                      <div>Link Height : {style.linkHeight}</div>
+                      <div>Line Height : {style.lineHeight}</div>
                       {style.letterSpacing && (
                         <div>Letter Spacing : {style.letterSpacing}</div>
                       )}

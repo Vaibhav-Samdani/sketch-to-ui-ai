@@ -9,7 +9,7 @@ type Props = {
 const tabs = [
   { value: "colours", label: "Colours", icon: Hash },
   { value: "typography", label: "Typography", icon: Type },
-  { value: "moodbaord", label: "Moodboard", icon: LayoutIcon },
+  { value: "moodboard", label: "Moodboard", icon: LayoutIcon },
 ] as const;
 
 const Layout = ({ children }: Props) => {

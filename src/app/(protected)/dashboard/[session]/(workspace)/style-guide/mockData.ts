@@ -84,7 +84,7 @@ export const mockTypographyGuide = [
     styles: [
       {
         name: "Heading 1",
-        fontFamily: "Inter",
+        fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         fontSize: "2.25rem", // 36px
         fontWeight: "700",
         lineHeight: "1.2",
@@ -93,7 +93,7 @@ export const mockTypographyGuide = [
       },
       {
         name: "Heading 2",
-        fontFamily: "Inter",
+        fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         fontSize: "1.875rem", // 30px
         fontWeight: "600",
         lineHeight: "1.3",
@@ -107,7 +107,7 @@ export const mockTypographyGuide = [
     styles: [
       {
         name: "Body Large",
-        fontFamily: "Inter",
+        fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         fontSize: "1.125rem", // 18px
         fontWeight: "400",
         lineHeight: "1.6",
@@ -115,7 +115,7 @@ export const mockTypographyGuide = [
       },
       {
         name: "Body Regular",
-        fontFamily: "Inter",
+        fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         fontSize: "1rem", // 16px
         fontWeight: "400",
         lineHeight: "1.5",
@@ -128,7 +128,7 @@ export const mockTypographyGuide = [
     styles: [
       {
         name: "Button Text",
-        fontFamily: "Inter",
+        fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         fontSize: "0.875rem", // 14px
         fontWeight: "500",
         lineHeight: "1.4",
@@ -137,7 +137,7 @@ export const mockTypographyGuide = [
       },
       {
         name: "Caption",
-        fontFamily: "Inter",
+        fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
         fontSize: "0.75rem", // 12px
         fontWeight: "400",
         lineHeight: "1.4",

@@ -7,6 +7,7 @@ import { Palette } from "lucide-react";
 import React from "react";
 import { mockColorGuide, mockTypographyGuide } from "./mockData";
 import StyleGuideTypography from "@/components/style/typography";
+import MoodBoard from "@/components/style/mood-board";
 
 type Props = {
   searchParams: Promise<{ project: string }>;
@@ -54,11 +55,15 @@ const StyleGuide = async ({ searchParams }: Props) => {
       </TabsContent>
 
       <TabsContent value="typography" className="space-y-8">
-        {/* <StyleGuideTypography typographyGuide={typographyGuide} />
-      </TabsContent> */}
-        <StyleGuideTypography typographyGuide={mockTypographyGuide} />
-        {/* TIMESTAMP : 3:54:00 */}
+        <StyleGuideTypography typographyGuide={typographyGuide} />
         {/* TODO : Font is not changing as per need. */}
+
+        {/* <StyleGuideTypography typographyGuide={mockTypographyGuide} /> */}
+        {/* TIMESTAMP : 3:54:00 */}
+      </TabsContent>
+
+      <TabsContent value="moodboard" className="space-y-8">
+        <MoodBoard guideImages={guideImages} />
       </TabsContent>
     </div>
   );
