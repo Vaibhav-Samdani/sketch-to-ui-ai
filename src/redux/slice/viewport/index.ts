@@ -140,7 +140,8 @@ const viewportSlice = createSlice({
       action: PayloadAction<{ deltaY: number; originScreen: Point }>
     ) {
       const { deltaY, originScreen } = action.payload;
-      const factor = Math.pow(state.zoomStep, -deltaY / 53);
+      // Make zooming more responsive and intuitive
+      const factor = Math.pow(state.zoomStep, -deltaY / 100);
       const next = clamp(state.scale * factor, state.minScale, state.maxScale);
       const t = zoomAroundScreenPoint(
         originScreen,
@@ -154,8 +155,10 @@ const viewportSlice = createSlice({
     },
 
     wheelPan(state, action: PayloadAction<{ dx: number; dy: number }>) {
-      state.translate.x += action.payload.dx * state.wheelPanSpeed;
-      state.translate.y += action.payload.dy * state.wheelPanSpeed;
+      // Make panning scale-aware and smoother
+      const speed = state.wheelPanSpeed / Math.max(0.5, state.scale);
+      state.translate.x += action.payload.dx * speed;
+      state.translate.y += action.payload.dy * speed;
     },
 
     panStart(
@@ -170,8 +173,12 @@ const viewportSlice = createSlice({
     panMove(state, action: PayloadAction<Point>) {
       if (!(state.mode === "panning" || state.mode === "shiftPanning")) return;
       if (!state.panStartScreen || !state.panStartTranslate) return;
+
+      // Calculate delta in screen coordinates
       const dx = action.payload.x - state.panStartScreen.x;
       const dy = action.payload.y - state.panStartScreen.y;
+
+      // Apply the pan with improved handling
       state.translate.x = state.panStartTranslate.x + dx;
       state.translate.y = state.panStartTranslate.y + dy;
     },

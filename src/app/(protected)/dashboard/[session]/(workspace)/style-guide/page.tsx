@@ -59,7 +59,6 @@ const StyleGuide = async ({ searchParams }: Props) => {
         {/* TODO : Font is not changing as per need. */}
 
         {/* <StyleGuideTypography typographyGuide={mockTypographyGuide} /> */}
-        {/* TIMESTAMP : 3:54:00 */}
       </TabsContent>
 
       <TabsContent value="moodboard" className="space-y-8">

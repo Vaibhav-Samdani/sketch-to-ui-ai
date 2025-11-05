@@ -1,11 +1,43 @@
-import React from 'react'
+import InfiniteCanvas from "@/components/canvas";
+import ProjectProvider from "@/components/projects/provider";
+import { ProjectQuery } from "@/convex/query.config";
+import React from "react";
 
-type Props = {}
+type CanvasPageProps = {
+  searchParams: Promise<{ project?: string }>;
+};
 
-const CanvasPage = (props: Props) => {
-  return (
-    <div>page</div>
-  )
-}
+const CanvasPage = async ({ searchParams }: CanvasPageProps) => {
+  const params = await searchParams;
+  const projectId = params.project!;
 
-export default CanvasPage
+  if (!projectId) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <p className="text-muted-foreground">No project selected</p>
+      </div>
+    );
+  }
+  const { project, profile } = await ProjectQuery(projectId);
+
+  if (!profile) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <p className="text-muted-foreground">Authentication Required.</p>
+      </div>
+    );
+  }
+
+  if (!profile) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <p className="text-red-500">Project not found or access denied.</p>
+      </div>
+    );
+  }
+  return <ProjectProvider initialProjects={project}>
+    <InfiniteCanvas />
+  </ProjectProvider>;
+};
+
+export default CanvasPage;
