@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { fetchProjectsSuccess } from "@/redux/slice/projects";
 import { useAppDispatch } from "@/redux/store";
 import React, { useEffect } from "react";
